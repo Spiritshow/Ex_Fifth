@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react'
 import './Sidebar.css'
 import { Link } from 'react-router-dom'
-import ThemeContext from '../../context/ThemeContext'
 
 
 const Sidebar = () => {
-    const {notes, setNotes} = useContext(ThemeContext);
+    const [notes, setNotes] = useState([])
 
     const List = () =>{
         if(!!notes){

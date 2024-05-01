@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import './Card.css';
-import ThemeContext from "../../../context/ThemeContext";
 
 const Card = ({props}) => {
-    const {notes, setNotes} = useContext(ThemeContext);
 
     const AddNote = () => {
         if(!!notes){

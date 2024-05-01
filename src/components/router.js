@@ -4,13 +4,9 @@ import Layout from './pages/layout/Layout';
 import ListFilms from './pages/listFilms/ListFilms';
 import SearchFilms from './pages/searchFilms/SearchFilms';
 import Film from './pages/film/Film';
-import { useState } from 'react';
-import ThemeContext from './context/ThemeContext';
 
 const Router = () => {
-    const [notes, setNotes] = useState([])
     return(
-        <ThemeContext.Provider value={[notes, setNotes]}>
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Layout/>}>
@@ -20,7 +16,6 @@ const Router = () => {
                 </Route>
             </Routes>
         </BrowserRouter>
-        </ThemeContext.Provider>
     );
 }
 
