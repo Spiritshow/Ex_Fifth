@@ -1,0 +1,13 @@
+.listfilms{
+    margin-left: 25%;
+    padding: 0px 10px;
+}
+
+.button_line{
+    display: flex;
+    flex-direction: row;
+}
+
+.button_line button {
+    margin-right: 20px;
+}

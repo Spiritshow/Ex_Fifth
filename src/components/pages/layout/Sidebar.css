@@ -1,0 +1,8 @@
+.sidebar{
+    display: block;
+    position:fixed;
+    background-color: aqua;
+    height: 100%;
+    width: 25%; 
+    z-index: 1;
+}

@@ -1,0 +1,26 @@
+.Card {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 95%;
+    background-color: rgb(235, 235, 235);
+    border-radius: 25px;
+    padding: 15px;
+    font-size: calc(10px + 2vmin);
+    margin: 15px;
+}
+
+.left_block{
+    width: 75%;
+}
+
+.Castom_genre{
+    display: flex;
+    flex-direction: row;
+}
+
+.Castom_actors{
+    display: flex;
+    flex-direction: row;
+}
+
