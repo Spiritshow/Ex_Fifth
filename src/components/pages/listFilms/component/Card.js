@@ -5,18 +5,13 @@ import './Card.css';
 const Card = ({props}) => {
 
     const AddNote = () => {
-        if(!!notes){
-            setNotes(notes.push(props))
-        }else{
-            setNotes([props])
-        }
         
     }
-
+    // {`/Film/${props.id}`}
     return(
         <div className="Card">
             <div className="left_block">
-                <Link to={`/Film/${props.id}`}>{props.title}</Link>
+                <Link to = {`/Film/${props.id}`} state = {props} >{props.title}</Link>
                 <div className="Castom_genre">
                     <h6>Жанры: </h6>
                     {props.genres.map(genre => (

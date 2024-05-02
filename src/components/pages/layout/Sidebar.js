@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import './Sidebar.css'
 import { Link } from 'react-router-dom'
 
@@ -7,10 +7,10 @@ const Sidebar = () => {
     const [notes, setNotes] = useState([])
 
     const List = () =>{
-        if(!!notes){
-        const listNotes = notes.map( note => (
-            <Link to={`/Film/${note.id}`}>{note.title}</Link>
-        ))
+        if(!!notes[0]){
+           const listNotes = notes.map( note => (
+                <Link to={`/Film/${note.id}`}>{note.title}</Link>
+            ))
         return({listNotes})
         }else{
             return(<p>Добавте понравившиеся фильмы в заметки</p>)
