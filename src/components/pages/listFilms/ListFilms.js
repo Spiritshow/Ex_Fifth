@@ -21,7 +21,7 @@ const ListFilms = () => {
             const descendingFilms = [...films].sort((a, b) => b.rating - a.rating);
             setFilms(descendingFilms);
         }
-    },[pos, films])
+    },[pos])
 
     const GoToSearchFilm = () => {
         navigate('/SearchFilms');

@@ -1,11 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Card.css';
+import { useStore } from "../../../Store/store";
 
 const Card = ({props}) => {
 
+    const inSideBar = useStore((state) => state.datas)
+    const AddinSideBar = useStore((state) => state.addData)
+
+    // useEffect({
+
+    // },[inSideBar])
+
     const AddNote = () => {
-        
+        AddinSideBar(props.id, props.title);
     }
     // {`/Film/${props.id}`}
     return(

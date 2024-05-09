@@ -1,17 +1,19 @@
 import React, { useState } from 'react'
 import './Sidebar.css'
 import { Link } from 'react-router-dom'
+import { useStore } from '../../Store/store'
 
 
 const Sidebar = () => {
-    const [notes, setNotes] = useState([])
+    const inSideBar = useStore((state) => state.datas)
 
     const List = () =>{
-        if(!!notes[0]){
-           const listNotes = notes.map( note => (
+        if(!!inSideBar[0]){
+           const listNotes = inSideBar.map( note => (
                 <Link to={`/Film/${note.id}`}>{note.title}</Link>
-            ))
-        return({listNotes})
+           ))
+           console.log(inSideBar[0].id)
+        return(listNotes)
         }else{
             return(<p>Добавте понравившиеся фильмы в заметки</p>)
         }
