@@ -9,6 +9,7 @@ export const useStore = create((set, get) => ({
     addData: (newId, newTitle) => {
         const props = {id: newId, title: newTitle}
         let toggle = true
+        
 
         if(!!get().datas) get().datas.map(
             data => newId === data.id ? 
@@ -16,5 +17,10 @@ export const useStore = create((set, get) => ({
         )
         if(toggle) 
         set({datas: [ ...get().datas , props]})
+        else{
+            const index = get().datas.findIndex(data => data.id === newId);
+            get().datas.splice(index, 1)
+            set({datas: [ ...[], ...get().datas]})
+        }
     }
 }))

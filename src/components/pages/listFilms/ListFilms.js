@@ -7,19 +7,22 @@ const ListFilms = () => {
     const [pos, setPos] = useState('1')
     const navigate = useNavigate()
 
+    useEffect(() =>{
     fetch('https://raw.githubusercontent.com/Spiritshow/Value_Films/main/Value_films.json')
         .then(response => response.json())
         .then(data => setFilms(data));
+    },[])
 
     useEffect(()=>{
         
-
+//переделать
         if(pos === '1'){
             const ascendingFilms = [...films].sort((a, b) => a.rating - b.rating);
-            setFilms(ascendingFilms);
+            setFilms([...[],...ascendingFilms]);
         }else{
             const descendingFilms = [...films].sort((a, b) => b.rating - a.rating);
-            setFilms(descendingFilms);
+            setFilms([]);
+            setFilms([...[],...descendingFilms]);
         }
     },[pos])
 
@@ -29,6 +32,14 @@ const ListFilms = () => {
 
     const handleChange = (event) => {
         return(event.target.value === '1' ? setPos('1') : setPos('2'))
+    }
+
+    const List = () =>{
+        if(!!films.length){
+            return(films.map(film => (
+            <Card props={film}/>)))}
+        else 
+            return(<h4>Загрузка...</h4>)
     }
 
     return(
@@ -42,11 +53,7 @@ const ListFilms = () => {
                     <option value='2' >по убыванию рейтинга</option>
                 </select>
             </div>
-            {films.map(film => (
-                <div>
-                    <Card props={film}/>
-                </div>
-            ))}
+            <List/>
         </div>
     )
 }
